@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Grader — Team Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f8faf9; color: #1a1a1a; line-height: 1.6; }
+  .header { background: #122D28; color: white; padding: 40px 24px; }
+  .header-inner { max-width: 900px; margin: 0 auto; }
+  .header h1 { font-family: 'Averia Serif Libre', serif; font-size: 32px; margin-bottom: 8px; }
+  .header p { color: #9cb8b2; font-size: 15px; }
+  .header .meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header .meta span { background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 13px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+  .section { background: white; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .section h2 { font-family: 'Averia Serif Libre', serif; font-size: 22px; color: #122D28; margin-bottom: 16px; }
+  .section h3 { font-size: 16px; font-weight: 600; color: #122D28; margin: 20px 0 10px; }
+  .section p { color: #444; font-size: 14px; margin-bottom: 12px; }
+  .callout { background: #f0faf4; border-left: 3px solid #0E8A52; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #1a1a1a; }
+  .callout strong { color: #0E8A52; }
+
+  /* Funnel */
+  .funnel { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 24px 0; }
+  .funnel-stage { text-align: center; padding: 20px 24px; border: 2px solid #122D28; position: relative; background: white; }
+  .funnel-stage.scored { border-color: #122D28; }
+  .funnel-stage.cta { border: 2px dashed #ccc; background: #fafafa; }
+  .funnel-stage .stage-num { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #0E8A52; margin-bottom: 4px; }
+  .funnel-stage .stage-name { font-family: 'Averia Serif Libre', serif; font-size: 18px; font-weight: 700; color: #122D28; }
+  .funnel-stage.cta .stage-name { color: #999; }
+  .funnel-stage .stage-question { font-size: 13px; color: #666; margin-top: 2px; }
+  .funnel-stage .stage-meta { font-size: 12px; color: #0E8A52; font-weight: 600; margin-top: 6px; }
+  .funnel-stage.cta .stage-meta { color: #999; }
+  .funnel-stage:nth-child(1) { width: 100%; border-radius: 12px 12px 0 0; }
+  .funnel-stage:nth-child(2) { width: 88%; }
+  .funnel-stage:nth-child(3) { width: 76%; }
+  .funnel-stage:nth-child(4) { width: 64%; border-radius: 0 0 12px 12px; }
+  .funnel-divider { width: 2px; height: 12px; background: #ddd; }
+
+  /* Check tables */
+  .checks-grid { margin: 12px 0; }
+  .check-row { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 8px; font-size: 14px; }
+  .check-row:nth-child(odd) { background: #f9fafb; }
+  .check-num { width: 24px; height: 24px; border-radius: 50%; background: #0E8A52; color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .check-name { flex: 1; color: #1a1a1a; }
+  .check-source { font-size: 12px; color: #888; background: #f0f0f0; padding: 2px 10px; border-radius: 12px; flex-shrink: 0; }
+
+  /* Flow */
+  .flow { display: flex; align-items: center; gap: 0; margin: 20px 0; flex-wrap: wrap; justify-content: center; }
+  .flow-step { background: #f0faf4; border-radius: 10px; padding: 14px 20px; text-align: center; font-size: 13px; font-weight: 500; color: #122D28; min-width: 140px; }
+  .flow-arrow { font-size: 20px; color: #0E8A52; padding: 0 4px; }
+
+  /* Tech table */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+  th { text-align: left; padding: 10px 16px; background: #122D28; color: white; font-size: 13px; font-weight: 600; }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td { padding: 10px 16px; border-bottom: 1px solid #f0f0f0; }
+  tr:last-child td { border-bottom: none; }
+
+  /* Phases */
+  .phase { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+  .phase:last-child { border-bottom: none; }
+  .phase-badge { background: #0E8A52; color: white; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; flex-shrink: 0; white-space: nowrap; }
+  .phase-badge.built { background: #12B76A; }
+  .phase-badge.next { background: #FFB345; color: #1a1a1a; }
+  .phase-text { font-size: 14px; color: #444; }
+
+  /* Design asks */
+  .ask { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .ask:last-child { border-bottom: none; }
+  .ask-num { width: 28px; height: 28px; border-radius: 8px; background: #122D28; color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ask-text { font-size: 14px; color: #444; }
+  .ask-text strong { color: #122D28; }
+
+  /* Decisions */
+  .decision { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; }
+  .decision-icon { color: #0E8A52; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .decision-text { font-size: 14px; color: #444; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 24px; }
+    .section { padding: 20px; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>Agency Grader</h1>
+    <p>Free digital presence audit for insurance agencies → demo bookings for PolicyLift</p>
+    <div class="meta">
+      <span>March 2026</span>
+      <span>Strategy Approved</span>
+      <span>Phase 1 Built</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- What is it -->
+  <div class="section">
+    <h2>What is it?</h2>
+    <p>An agency owner types their business name, and in 30 seconds gets a scored audit of their online presence. No signup, no email gate. The full report is free. The CTA is <strong>"Book a Demo."</strong></p>
+    <div class="callout">
+      <strong>The model:</strong> Owner.com's Restaurant Grader, HubSpot's Website Grader. Our twist — Google Places identifies the agency automatically. Every gap maps to a PolicyLift product. The conversion event is a demo booking, not an email capture.
+    </div>
+  </div>
+
+  <!-- The Funnel -->
+  <div class="section">
+    <h2>The Funnel = The Report</h2>
+    <p>The grader is organized around the PolicyLift funnel. The funnel IS the report structure — no separate category names competing for attention.</p>
+
+    <div class="funnel">
+      <div class="funnel-stage scored">
+        <div class="stage-num">Stage 1</div>
+        <div class="stage-name">Discovery</div>
+        <div class="stage-question">"Can they find you?"</div>
+        <div class="stage-meta">10 checks · 50 points</div>
+      </div>
+      <div class="funnel-divider"></div>
+      <div class="funnel-stage scored">
+        <div class="stage-num">Stage 2</div>
+        <div class="stage-name">Trust</div>
+        <div class="stage-question">"Do they trust you?"</div>
+        <div class="stage-meta">5 checks · 25 points</div>
+      </div>
+      <div class="funnel-divider"></div>
+      <div class="funnel-stage scored">
+        <div class="stage-num">Stage 3</div>
+        <div class="stage-name">Capture &amp; Qualify</div>
+        <div class="stage-question">"Can they reach you and start the process?"</div>
+        <div class="stage-meta">4 checks · 25 points</div>
+      </div>
+      <div class="funnel-divider"></div>
+      <div class="funnel-stage cta">
+        <div class="stage-num" style="color:#999">Stage 4 — CTA</div>
+        <div class="stage-name">Intake → Quote → Bind → Service</div>
+        <div class="stage-question">"PolicyLift automates the rest with AI."</div>
+        <div class="stage-meta">Not scored — this is the hook</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checks -->
+  <div class="section">
+    <h2>What We Score — 19 Checks</h2>
+    <p>Every check is something most agencies will <strong>fail</strong>. No filler.</p>
+
+    <h3>Stage 1: Discovery — 50 pts</h3>
+    <div class="checks-grid">
+      <div class="check-row"><span class="check-num">1</span><span class="check-name">Ranks for "[city] insurance" keywords</span><span class="check-source">SEMrush</span></div>
+      <div class="check-row"><span class="check-num">2</span><span class="check-name">Organic keyword count ≥ 50</span><span class="check-source">SEMrush</span></div>
+      <div class="check-row"><span class="check-num">3</span><span class="check-name">Domain Authority ≥ 20</span><span class="check-source">SEMrush</span></div>
+      <div class="check-row"><span class="check-num">4</span><span class="check-name">Page load under 3 seconds</span><span class="check-source">Lighthouse</span></div>
+      <div class="check-row"><span class="check-num">5</span><span class="check-name">Mobile-responsive site</span><span class="check-source">Lighthouse</span></div>
+      <div class="check-row"><span class="check-num">6</span><span class="check-name">Title/meta includes city + "insurance"</span><span class="check-source">Firecrawl</span></div>
+      <div class="check-row"><span class="check-num">7</span><span class="check-name">Non-brand traffic &gt; 20%</span><span class="check-source">SEMrush</span></div>
+      <div class="check-row"><span class="check-num">8</span><span class="check-name">Has dedicated local/coverage pages</span><span class="check-source">Firecrawl</span></div>
+      <div class="check-row"><span class="check-num">9</span><span class="check-name">Backlink health (toxic vs legit ratio)</span><span class="check-source">SEMrush</span></div>
+      <div class="check-row"><span class="check-num">10</span><span class="check-name">Monthly organic traffic ≥ 200</span><span class="check-source">SEMrush</span></div>
+    </div>
+    <div class="callout"><strong>Why it's heavy:</strong> SEO problems produce the most concrete, personalized data. "You rank for 299 keywords but only 3 visitors a month are shopping for insurance" is a gut punch. This stage also upsells into our existing full SEO audit report.</div>
+
+    <h3>Stage 2: Trust — 25 pts</h3>
+    <div class="checks-grid">
+      <div class="check-row"><span class="check-num">1</span><span class="check-name">Google rating ≥ 4.5</span><span class="check-source">Google Places</span></div>
+      <div class="check-row"><span class="check-num">2</span><span class="check-name">50+ Google reviews</span><span class="check-source">Google Places</span></div>
+      <div class="check-row"><span class="check-num">3</span><span class="check-name">Review within last 30 days</span><span class="check-source">Google Places</span></div>
+      <div class="check-row"><span class="check-num">4</span><span class="check-name">Owner responds to reviews</span><span class="check-source">Google Places</span></div>
+      <div class="check-row"><span class="check-num">5</span><span class="check-name">Reviews showcased on website</span><span class="check-source">Firecrawl</span></div>
+    </div>
+
+    <h3>Stage 3: Capture &amp; Qualify — 25 pts</h3>
+    <div class="checks-grid">
+      <div class="check-row"><span class="check-num">1</span><span class="check-name">After-hours availability (voice AI, chat, or evening/weekend hours)</span><span class="check-source">Places + Firecrawl</span></div>
+      <div class="check-row"><span class="check-num">2</span><span class="check-name">AI-powered chat (not just a basic live chat widget)</span><span class="check-source">Firecrawl</span></div>
+      <div class="check-row"><span class="check-num">3</span><span class="check-name">Insurance-specific forms (coverage type, vehicle, property, etc.)</span><span class="check-source">Firecrawl</span></div>
+      <div class="check-row"><span class="check-num">4</span><span class="check-name">Self-service booking/calendar</span><span class="check-source">Firecrawl</span></div>
+    </div>
+  </div>
+
+  <!-- User Flow -->
+  <div class="section">
+    <h2>User Flow</h2>
+    <div class="flow">
+      <div class="flow-step">Landing page<br><small style="color:#888">Type agency name</small></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">30s scan animation<br><small style="color:#888">Their data revealed live</small></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Results page<br><small style="color:#888">Score + funnel + checks</small></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background:#0E8A52; color:white;">Book a Demo<br><small style="color:rgba(255,255,255,0.7)">The conversion event</small></div>
+    </div>
+    <div class="callout">
+      <strong>The emotional hook:</strong> During the scan, the agency owner watches their own data appear in real-time — their Google rating, their website screenshot, their keyword rankings. They're seeing themselves analyzed. That's what keeps them watching for 30 seconds.
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <table>
+      <tr><th>Component</th><th>Technology</th></tr>
+      <tr><td>Frontend + API</td><td>Next.js (App Router) on Vercel</td></tr>
+      <tr><td>Business lookup</td><td>Google Places API</td></tr>
+      <tr><td>SEO intelligence</td><td>SEMrush API</td></tr>
+      <tr><td>Website analysis</td><td>Firecrawl (single crawl per domain)</td></tr>
+      <tr><td>Page speed</td><td>Lighthouse / PageSpeed Insights API</td></tr>
+      <tr><td>Lead tracking</td><td>HubSpot API</td></tr>
+      <tr><td>AI summary</td><td>Claude API (Haiku)</td></tr>
+      <tr><td>Cache</td><td>Vercel KV (SEMrush 7-day, rest 24hr)</td></tr>
+    </table>
+  </div>
+
+  <!-- Build Status -->
+  <div class="section">
+    <h2>Build Status</h2>
+    <div class="phase"><span class="phase-badge built">BUILT</span><span class="phase-text"><strong>Phase 1:</strong> Next.js scaffold, Google Places autocomplete, SSE scan route, Trust scoring, funnel UI, design tokens</span></div>
+    <div class="phase"><span class="phase-badge next">NEXT</span><span class="phase-text"><strong>Phase 2:</strong> Lighthouse (page speed, mobile), full scoring engine with all 19 checks, results page polish</span></div>
+    <div class="phase"><span class="phase-badge next">NEXT</span><span class="phase-text"><strong>Phase 3:</strong> SEMrush + Firecrawl integration, AI chat detection, form analysis, insurance keyword matching</span></div>
+    <div class="phase"><span class="phase-badge next">NEXT</span><span class="phase-text"><strong>Phase 4:</strong> Scan animation choreography, AI verdict, HubSpot lead creation, caching, rate limiting</span></div>
+    <div class="phase"><span class="phase-badge next">NEXT</span><span class="phase-text"><strong>Phase 5:</strong> Deploy to grader.policylift.ai, test with 20 real agencies, accuracy fixes, demo booking CTA</span></div>
+  </div>
+
+  <!-- Design Asks -->
+  <div class="section">
+    <h2>Design Team — What We Need</h2>
+    <div class="ask"><span class="ask-num">1</span><span class="ask-text"><strong>Funnel visualization</strong> — Our funnel graphic adapted to show scores on top 3 stages + CTA on stage 4. Must work mobile (stacked) and desktop.</span></div>
+    <div class="ask"><span class="ask-num">2</span><span class="ask-text"><strong>Scanning animation</strong> — 30-second choreographed reveal showing the agency's own data. Each stage has a unique icon and data card.</span></div>
+    <div class="ask"><span class="ask-num">3</span><span class="ask-text"><strong>Results page</strong> — Score donut + letter grade above fold, funnel walkthrough below, CTA at bottom. Pass/fail/unverified states per check.</span></div>
+    <div class="ask"><span class="ask-num">4</span><span class="ask-text"><strong>Error states</strong> — No results, scan timeout, no website detected, partial results. Warm and actionable, not dead ends.</span></div>
+    <div class="ask"><span class="ask-num">5</span><span class="ask-text"><strong>Mobile responsive</strong> — Full-width input, stacked funnel, sticky "Book a Demo" at bottom after score is shown.</span></div>
+  </div>
+
+  <!-- Key Decisions -->
+  <div class="section">
+    <h2>Decisions Already Made</h2>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>No email gate.</strong> Google Places gives us the lead. CTA is demo booking.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>Funnel is the report.</strong> No separate category names competing with funnel stages.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>Score out of 100.</strong> Weighted 50/25/25 across 3 scored stages.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>"Unable to verify" ≠ failure.</strong> Honest about detection limits. Neutral icon, asterisk on score.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>Discovery is the SEO teaser.</strong> Full SEO audit report is the upsell from the demo.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>No filler checks.</strong> Every check must be something most agencies fail.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>Honest scoring — no gated points.</strong> If an agency earns 100/100, they get it. No artificial ceiling that forces a sale. Most agencies will fail plenty of checks on their own.</span></div>
+    <div class="decision"><span class="decision-icon">✓</span><span class="decision-text"><strong>CTA earns the meeting, doesn't extort it.</strong> The grader builds trust by being genuinely useful. The CTA asks the question they can't answer: "You scored 62 on the top of your funnel. But what happens after someone fills out that form at 11pm?" Two value props — fix what's broken (grader) + automate what you can't (PolicyLift).</span></div>
+  </div>
+
+</div>
+
+</body>
+</html>
