@@ -24,7 +24,7 @@ async function handleRequest(request) {
   const path = url.pathname;
 
   // Only proxy /win and /book (and their assets)
-  if (path === "/win" || path === "/book" || path === "/placard" || path.startsWith("/_next/") || path.startsWith("/images/")) {
+  if (path === "/win" || path === "/book" || path === "/placard" || path === "/icon.svg" || path.startsWith("/_next/") || path.startsWith("/images/")) {
     const vercelUrl = new URL(path + url.search, VERCEL_ORIGIN);
 
     const modifiedRequest = new Request(vercelUrl.toString(), {
