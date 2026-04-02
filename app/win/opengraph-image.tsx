@@ -33,7 +33,7 @@ export default async function Image() {
             height: "100%",
             display: "flex",
             background:
-              "linear-gradient(to bottom, rgba(250,250,250,0.15) 0%, rgba(250,250,250,0.4) 40%, rgba(250,250,250,0.8) 65%, rgba(250,250,250,0.95) 100%)",
+              "linear-gradient(to bottom, rgba(250,250,250,0.1) 0%, rgba(250,250,250,0.35) 35%, rgba(250,250,250,0.65) 55%, rgba(250,250,250,0.8) 75%, rgba(250,250,250,0.85) 100%)",
           }}
         />
 
