@@ -153,7 +153,9 @@ export default function BookingPage({ variant, kicker, kickerEmoji, headline, su
             <div className={`divider${isWin ? " divider--win" : ""}`} />
 
             <div className="person-card">
-              <div className="avatar">RB</div>
+              <div className="avatar">
+                <img src="/images/raghav-headshot.png" alt="Raghav Bansal" />
+              </div>
               <div className="person-info">
                 <span className="person-name">Raghav Bansal</span>
                 <span className="person-role">Founder &amp; CEO</span>
