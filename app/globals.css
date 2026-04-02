@@ -435,16 +435,21 @@ body {
     );
   }
 
-  /* Logo overlays the banner image */
+  /* Logo: small, top-left corner of banner */
   .logo {
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 8px;
+    left: 12px;
     z-index: 2;
   }
 
   .logo svg {
-    height: 30px;
+    height: 22px;
+  }
+
+  /* Hide person card on mobile */
+  .person-card {
+    display: none;
   }
 
   /* Kill spacers on mobile */
