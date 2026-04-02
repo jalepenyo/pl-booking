@@ -73,7 +73,7 @@ export default function BookingPage({ variant, kicker, kickerEmoji, headline, su
 
   useEffect(() => {
     // Inject the Cal.com bootstrap IIFE as a raw script to avoid TS issues
-    if (!(window as Record<string, unknown>).Cal) {
+    if (!(window as unknown as Record<string, unknown>).Cal) {
       const bootstrap = document.createElement("script");
       bootstrap.textContent = `
         (function (C, A, L) {
