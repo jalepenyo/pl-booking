@@ -437,10 +437,10 @@ body {
 
   /* Logo: small, top-left corner of banner */
   .logo {
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    z-index: 2;
+    position: absolute !important;
+    top: 12px;
+    left: 16px;
+    z-index: 2 !important;
   }
 
   .logo svg {
