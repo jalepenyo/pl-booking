@@ -9,7 +9,6 @@ export const metadata: Metadata = {
     title: "Book a Demo to Win — PolicyLift",
     description:
       "Win an all-inclusive trip to the Caribbean for 2. Book a 20-minute demo and enter to win.",
-    images: [{ url: "/images/win-bg.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
     title: "Book a Demo to Win — PolicyLift",
     description:
       "Win an all-inclusive trip to the Caribbean for 2. Book a 20-minute demo and enter to win.",
-    images: ["/images/win-bg.png"],
   },
 };
 
