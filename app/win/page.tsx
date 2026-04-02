@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   title: "Book a Demo to Win — PolicyLift",
   description:
     "Book a demo and win an all-inclusive trip to the Caribbean for 2. Learn how PolicyLift cuts quoting time in half.",
+  openGraph: {
+    title: "Book a Demo to Win — PolicyLift",
+    description:
+      "Win an all-inclusive trip to the Caribbean for 2. Book a 20-minute demo and enter to win.",
+    images: [{ url: "/images/win-bg.png", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a Demo to Win — PolicyLift",
+    description:
+      "Win an all-inclusive trip to the Caribbean for 2. Book a 20-minute demo and enter to win.",
+    images: ["/images/win-bg.png"],
+  },
 };
 
 export default function WinPage() {
