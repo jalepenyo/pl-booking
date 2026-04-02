@@ -354,8 +354,8 @@ body {
   line-height: 1;
 }
 
-/* ── Responsive: Graceful degradation below ~1000px ──── */
-@media (max-width: 999px) {
+/* ── Responsive: Tablet (below ~1000px) ──────────────── */
+@media (max-width: 999px) and (min-width: 601px) {
   html,
   body {
     overflow: auto;
@@ -383,6 +383,155 @@ body {
     height: 80vh;
     min-height: 600px;
     padding: 24px;
+  }
+
+  .cal-container {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+}
+
+/* ── Responsive: Mobile (600px and below) ────────────── */
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow: auto;
+  }
+
+  .page {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* ── Compact left panel ──────────────────────────────── */
+  .left-panel {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .left-panel::before {
+    display: none;
+  }
+
+  /* Image becomes a compact banner at the top */
+  .left-panel-bg {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    flex-shrink: 0;
+  }
+
+  .left-panel-bg::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(250, 250, 250, 0) 0%,
+      rgba(250, 250, 250, 0.6) 60%,
+      #fafafa 100%
+    );
+  }
+
+  /* Logo overlays the banner image */
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 2;
+  }
+
+  .logo svg {
+    height: 30px;
+  }
+
+  /* Kill spacers on mobile */
+  .spacer,
+  .spacer--win-top,
+  .spacer--win-bottom {
+    flex: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Content stack: tight and compact */
+  .content-stack {
+    padding: 6px 20px 16px;
+  }
+
+  .kicker {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .headline {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .subtext {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .divider {
+    margin-bottom: 14px;
+  }
+
+  /* Person card: compact single row */
+  .person-card {
+    margin-bottom: 6px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .person-name {
+    font-size: 14px;
+  }
+
+  .person-role {
+    font-size: 12px;
+  }
+
+  .meeting-meta {
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .meta-item {
+    font-size: 12px;
+  }
+
+  /* Hide social proof on mobile */
+  .social-proof {
+    display: none;
+  }
+
+  .avatar-dot {
+    width: 22px;
+    height: 22px;
+  }
+
+  .avatar-dot-initials {
+    font-size: 7px;
+  }
+
+  .proof-text {
+    font-size: 12px;
+  }
+
+  /* ── Cal.com embed takes over ────────────────────────── */
+  .right-panel {
+    height: auto;
+    min-height: 620px;
+    padding: 0 4px 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .cal-container {
