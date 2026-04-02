@@ -13,7 +13,7 @@
  *    - Add route: policylift.ai/book* → this worker
  */
 
-const VERCEL_ORIGIN = "https://pl-labs.vercel.app"; // ← Replace with your actual Vercel URL
+const VERCEL_ORIGIN = "https://pl-booking.vercel.app";
 
 addEventListener("fetch", (event) => {
   event.respondWith(handleRequest(event.request));
@@ -24,7 +24,7 @@ async function handleRequest(request) {
   const path = url.pathname;
 
   // Only proxy /win and /book (and their assets)
-  if (path === "/win" || path === "/book" || path.startsWith("/_next/") || path.startsWith("/images/")) {
+  if (path === "/win" || path === "/book" || path === "/placard" || path.startsWith("/_next/") || path.startsWith("/images/")) {
     const vercelUrl = new URL(path + url.search, VERCEL_ORIGIN);
 
     const modifiedRequest = new Request(vercelUrl.toString(), {
